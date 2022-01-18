@@ -1,6 +1,7 @@
 // import logo from "./logo.svg";
 // import "./App.css";
 import Box from "@material-ui/core/Box";
+import boxRequest from "./maincomponents";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
       >
         Solved requests
       </Box>
+      {boxRequest()}
     </div>
   );
 }

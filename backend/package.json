@@ -7,7 +7,9 @@
     "start": "node ./bin/www.js",
     "dev": "nodemon -r dotenv/config ./bin/www.js",
     "db-create-users-table": "node -r dotenv/config ./db/scripts/createUsersTable.js",
-    "db-create-requests-table": "node -r dotenv/config ./db/scripts/createRequestsTable.js"
+    "db-create-requests-table": "node -r dotenv/config ./db/scripts/createRequestsTable.js",
+    "db-populate-requests-table": "node -r dotenv/config ./db/scripts/populateRequestsTable.js",
+    "db-populate-users-table": "node -r dotenv/config ./db/scripts/populateUsersTable.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",

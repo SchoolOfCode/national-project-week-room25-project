@@ -5,8 +5,21 @@ import BrowseRequest from "../Components/BrowseRequests";
 import ExpandedRequest from "../Components/ExpandedRequests";
 import SolvedRequest from "../Components/SolvedRequests";
 import UnsolvedRequest from "../Components/UnsolvedRequests";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [requestList, setRequestList] = useState();
+  useEffect(() => {
+    async function getData() {
+      const result = await fetch(
+        "https://opentdb.com/api.php?amount=10&type=boolean"
+      );
+      const data = await result.json();
+      setRequestList(data);
+      console.log(data);
+    }
+    getData();
+  }, []);
   return (
     <div className="App">
       <header className="App-header">Hello</header>

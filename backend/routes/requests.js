@@ -1,5 +1,5 @@
 import express from "express";
-import { creatRequest, getRequests } from "../model/requests.js";
+import { creatRequest, getRequests, getRequestById } from "../model/requests.js";
 
 const router = express.Router();
 
@@ -15,9 +15,10 @@ res.json({Payload: allRequests.rows})
 
 })
 
-router.get("/:id", function(req, res){
-    id = Number(req.params.id)
-    
+router.get("/:id", async function(req, res){
+    const id = Number(req.params.id)
+    const selectedRequest = await getRequestById(id)
+    res.json({Payload:selectedRequest.rows})
 })
 
 export default router;

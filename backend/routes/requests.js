@@ -15,4 +15,9 @@ res.json({Payload: allRequests.rows})
 
 })
 
+router.get("/:id", function(req, res){
+    id = Number(req.params.id)
+    
+})
+
 export default router;

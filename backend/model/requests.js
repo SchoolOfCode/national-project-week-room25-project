@@ -12,3 +12,9 @@ export async function getRequests(){
     return res
 
 }
+
+export async function getRequestById(id){
+    const sqlString = `SELECT * FROM requests WHERE request_id=${id}`
+    const res = await query(sqlString)
+    return res
+}

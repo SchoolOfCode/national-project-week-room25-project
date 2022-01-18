@@ -1,12 +1,12 @@
 import pg from "pg"
 
 const pool = new pg.Pool({
-    user: config.user,
-    host: config.host,
-    database: config.database,
-    password: config.password,
-    port: config.port,
-    ssl: { rejectUnauthorized: false }
+    user: process.env.PGUSER,
+    host: process.env.PGHOST,
+    database: process.env.PGDATABASE,
+    password: process.env.PGPASSWORD,
+    port: process.env.PGPORT,
+    ssl: {rejectUnauthorized: false}
 })
 
 export default function query(text, params){

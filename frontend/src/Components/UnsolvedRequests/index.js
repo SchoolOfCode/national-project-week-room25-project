@@ -1,7 +1,7 @@
 import react from "react";
 import Box from "@material-ui/core/Box";
 
-function exspandedRequest() {
+function UnsolvedRequest() {
   return (
     <div>
       <Box
@@ -11,17 +11,15 @@ function exspandedRequest() {
         p={1}
       >
         {" "}
-        <h1>The problem</h1>
         <h3>room#</h3>
+        <h1>The Problem</h1>
+        <p>This is a problem explained</p>
         <h3>tags</h3>
-        <h3>discription of problem</h3>
-        <h3>The problem response from coach/bootcamper</h3>
-        <input></input>
         <br></br>
-        <button>Submit response</button>
+        <button>expand problem</button>
       </Box>
     </div>
   );
 }
 
-export default exspandedRequest;
+export default UnsolvedRequest;

@@ -7,7 +7,7 @@ import Box from "@material-ui/core/Box";
 // text box for tags
 // text box for what assistance you require
 
-function boxRequest() {
+function CreateRequest() {
   return (
     <div>
       <Box
@@ -33,4 +33,4 @@ function boxRequest() {
   );
 }
 
-export default boxRequest;
+export default CreateRequest;

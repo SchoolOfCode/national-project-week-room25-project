@@ -1,7 +1,7 @@
 import react from "react";
 import Box from "@material-ui/core/Box";
 
-function solvedRequest() {
+function SolvedRequest() {
   return (
     <div>
       <Box
@@ -23,4 +23,4 @@ function solvedRequest() {
   );
 }
 
-export default solvedRequest;
+export default SolvedRequest;

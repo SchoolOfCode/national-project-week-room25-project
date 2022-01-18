@@ -1,5 +1,5 @@
 import express from "express";
-import { creatRequest } from "../model/requests";
+import { creatRequest, getRequests } from "../model/requests";
 
 const router = express.Router();
 
@@ -8,5 +8,11 @@ router.post("/",  async function (req, res) {
     const requestItem = await creatRequest()
  
 });
+
+router.get("/",  async function( req, res){
+ const allRequests = await getRequests()
+res.json({Payload: allRequests.rows})
+
+})
 
 export default router;

@@ -26,6 +26,8 @@ function boxRequest() {
         <input></input>
         <h3>what assistance do you require?</h3>
         <input></input>
+        <br></br>
+        <button>Submit request</button>
       </Box>
     </div>
   );

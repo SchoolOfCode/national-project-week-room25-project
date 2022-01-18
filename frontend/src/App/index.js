@@ -11,9 +11,7 @@ function App() {
   const [requestList, setRequestList] = useState();
   useEffect(() => {
     async function getData() {
-      const result = await fetch(
-        "https://opentdb.com/api.php?amount=10&type=boolean"
-      );
+      const result = await fetch("https://week-project.herokuapp.com/requests");
       const data = await result.json();
       setRequestList(data);
       console.log(data);

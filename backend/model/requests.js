@@ -1,4 +1,4 @@
-import query from "../db";
+import query from "../db/index.js";
 
 export async function creatRequest(request){
     const sqlString = "INSERT INTO requests ()"

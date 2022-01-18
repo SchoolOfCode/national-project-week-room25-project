@@ -1,5 +1,5 @@
 import express from "express";
-import { creatRequest, getRequests } from "../model/requests";
+import { creatRequest, getRequests } from "../model/requests.js";
 
 const router = express.Router();
 

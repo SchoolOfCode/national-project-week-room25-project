@@ -2,6 +2,7 @@
 // import Box from "@material-ui/core/Box";
 import browseRequest from "./Components/Browserequests";
 import boxRequest from "./Components/Createrequest";
+import exspandedRequest from "./Components/exspandedRequest";
 import solvedRequest from "./Components/Solvedrequests";
 import unsolvedRequest from "./Components/Unsolvedrequests";
 
@@ -13,6 +14,7 @@ function App() {
       {browseRequest()}
       {unsolvedRequest()}
       {solvedRequest()}
+      {exspandedRequest()}
     </div>
   );
 }

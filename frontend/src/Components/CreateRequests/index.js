@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Box from "@material-ui/core/Box";
-import Button from "react-bootstrap/Button";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import Button from "react-bootstrap/Button";
+// import "bootstrap/dist/css/bootstrap.min.css";
 
 //create a submit box with post functionality
 //We need to create a text input box
@@ -82,7 +82,9 @@ function CreateRequest() {
             <option>Come to room</option>
           </select>
           <br></br>
-          <Button variant="danger">Submit request</Button>
+          <button type="button" className="btn btn-success">
+            Success
+          </button>
         </form>
       </Box>
     </div>

@@ -1,7 +1,7 @@
 import react from "react";
 import Box from "@material-ui/core/Box";
 
-function RequestPost({title}) {
+function RequestPost({ title, date, room, body, category }) {
   return (
     <div>
       <Box
@@ -11,10 +11,12 @@ function RequestPost({title}) {
         p={1}
       >
         {" "}
-        <h3>room#</h3>
-        <h1>The Problem: {title}</h1>
-        <p>This is a problem explained</p>
-        <h3>tags</h3>
+        <h2>
+          {room}: {title}
+        </h2>
+        <p>{category} </p>
+        <p>{date}</p>
+        <p>{body}</p>
         <br></br>
         <button>expand problem</button>
       </Box>

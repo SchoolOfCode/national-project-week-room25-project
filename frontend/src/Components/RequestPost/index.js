@@ -1,7 +1,7 @@
 import react from "react";
 import Box from "@material-ui/core/Box";
 
-function UnsolvedRequest() {
+function RequestPost({title}) {
   return (
     <div>
       <Box
@@ -12,7 +12,7 @@ function UnsolvedRequest() {
       >
         {" "}
         <h3>room#</h3>
-        <h1>The Problem</h1>
+        <h1>The Problem: {title}</h1>
         <p>This is a problem explained</p>
         <h3>tags</h3>
         <br></br>
@@ -22,4 +22,4 @@ function UnsolvedRequest() {
   );
 }
 
-export default UnsolvedRequest;
+export default RequestPost;

@@ -1,4 +1,3 @@
-import react from "react";
 import Box from "@material-ui/core/Box";
 
 function RequestPost({ title, date, room, body, category }) {

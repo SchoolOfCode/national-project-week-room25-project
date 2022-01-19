@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [requestList, setRequestList] = useState([]);
+  const [submittedRequest, setSubmittedRequest] = useState();
   useEffect(() => {
     async function getData() {
       const result = await fetch("https://week-project.herokuapp.com/requests");
@@ -19,7 +20,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">CamperOverflow</header>
-      <CreateRequest />
+      <CreateRequest setSubmittedRequest={setSubmittedRequest} />
       <BrowseRequest />
       {requestList.map((request) => {
         return (

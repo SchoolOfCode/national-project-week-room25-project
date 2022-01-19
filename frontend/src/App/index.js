@@ -61,10 +61,13 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="myApp">
       <header className="App-header">CamperOverflow</header>
+
       <CreateRequest setSubmittedRequest={handleRequestSubmit} />
+
       <BrowseRequest />
+
       {requestList.map((request) => {
         return (
           <Request

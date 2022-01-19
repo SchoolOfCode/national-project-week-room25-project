@@ -13,7 +13,9 @@ import Box from "@material-ui/core/Box";
 // change h3 to labels
 // make state to track inputs of the user
 //
-function CreateRequest() {
+
+function CreateRequest({ setSubmittedRequest }) {
+
   const [userInput, setUserInput] = useState({
     category: "miscellaneous",
     help: "respond here",
@@ -30,7 +32,7 @@ function CreateRequest() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(userInput);
+    setSubmittedRequest(userInput);
   }
 
   return (
@@ -67,15 +69,16 @@ function CreateRequest() {
             <option>Deployment</option>
             <option>planning</option>
           </select>
-          <label htmlFor="discription">
+          <label htmlFor="description">
             Explain in more detail, Include what you have tried
           </label>
-          <input
-            type="text"
-            id="discription"
+
+          <textarea
+            id="description"
             onChange={handleOnChange}
             required
-          ></input>
+          ></textarea>
+
           <label htmlFor="help">what assistance do you require?</label>
           <select id="help" onChange={handleOnChange} required>
             <option defaultValue>respond here</option>

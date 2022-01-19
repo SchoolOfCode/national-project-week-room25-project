@@ -11,19 +11,28 @@ function App() {
     async function getData() {
       const result = await fetch("https://week-project.herokuapp.com/requests");
       const data = await result.json();
-      console.log(data.Payload)
+      console.log(data.Payload);
       setRequestList(data.Payload);
     }
     getData();
   }, []);
   return (
     <div className="App">
-      <header className="App-header">Hello</header>
+      <header className="App-header">CamperOverflow</header>
       <CreateRequest />
       <BrowseRequest />
-      {requestList.map( (request) => {
-        return <Request key={request["request_id"]} title={request.title} body={request.body} 
-        category={request.category} date={request["request_date"]} room={request.room} userId={request["user_id"]} /> 
+      {requestList.map((request) => {
+        return (
+          <Request
+            key={request["request_id"]}
+            title={request.title}
+            body={request.body}
+            category={request.category}
+            date={request["request_date"]}
+            room={request.room}
+            userId={request["user_id"]}
+          />
+        );
       })}
     </div>
   );

@@ -10,11 +10,16 @@ import usersRouter  from './routes/users.js';
 import requestRouter from "./routes/requests.js";
 import responseRouter from "./routes/response.js"
 
+var corsOptions = {
+  origin: true,
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+
 
 const app = express();
 
 app.use(logger('dev'));
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());

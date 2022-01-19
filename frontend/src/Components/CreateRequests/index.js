@@ -23,6 +23,11 @@ function CreateRequest() {
     setUserInput({...userInput, [element]: text});
   }
 
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log(userInput);
+  }
+
   return (
     <div>
       <Box
@@ -32,31 +37,33 @@ function CreateRequest() {
         p={1}
       >
         {" "}
-        <h2>create a request</h2>
-        <label htmlFor="room">room#</label>
-        <input type="number" id="room" onChange={handleOnChange} required></input>
-        <label htmlFor="problemTitle">what is your problem</label>
-        <input type="text" id="problemTitle" onChange={handleOnChange} required></input>
-        <label htmlFor="category">Category</label>
-        <select id="category" onChange={handleOnChange} required>
-          <option defaultValue>miscellaneous</option>
-          <option>react</option>
-          <option>github</option>
-          <option>JavaScript</option>
-          <option>Deployment</option>
-          <option>planning</option>
-        </select>
-        <label htmlFor="discription">
-          Explain in more detail, Include what you have tried
-        </label>
-        <input type="text" id="discription" onChange={handleOnChange} required></input>
-        <label htmlFor="help">what assistance do you require?</label>
-        <select id="help" onChange={handleOnChange} required>
-          <option defaultValue>respond here</option>
-          <option>Come to room</option>
-        </select>
-        <br></br>
-        <button>Submit request</button>
+        <form onSubmit={handleSubmit}>
+          <h2>create a request</h2>
+          <label htmlFor="room">room#</label>
+          <input type="number" id="room" onChange={handleOnChange} required></input>
+          <label htmlFor="problemTitle">what is your problem</label>
+          <input type="text" id="problemTitle" onChange={handleOnChange} required></input>
+          <label htmlFor="category">Category</label>
+          <select id="category" onChange={handleOnChange} required>
+            <option defaultValue>miscellaneous</option>
+            <option>react</option>
+            <option>github</option>
+            <option>JavaScript</option>
+            <option>Deployment</option>
+            <option>planning</option>
+          </select>
+          <label htmlFor="discription">
+            Explain in more detail, Include what you have tried
+          </label>
+          <input type="text" id="discription" onChange={handleOnChange} required></input>
+          <label htmlFor="help">what assistance do you require?</label>
+          <select id="help" onChange={handleOnChange} required>
+            <option defaultValue>respond here</option>
+            <option>Come to room</option>
+          </select>
+          <br></br>
+          <button>Submit request</button>
+        </form>
       </Box>
     </div>
   );

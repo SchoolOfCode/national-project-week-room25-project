@@ -3,7 +3,7 @@ import query from "../db/index.js";
 export async function creatRequest(request) {
   const user_id = request.user_id;
   const title = request.title;
-  const category = request.title;
+  const category = request.category;
   const room = request.room;
   const body = request.body;
   const request_date = request.request_date;

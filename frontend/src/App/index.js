@@ -10,11 +10,11 @@ function App() {
   const [requestList, setRequestList] = useState([]);
   const [submittedRequest, setSubmittedRequest] = useState(null);
   const [currentUserId, setCurrentUserId] = useState(2);
+
   useEffect(() => {
     async function getData() {
       const result = await fetch("https://week-project.herokuapp.com/requests");
       const data = await result.json();
-      console.log(data.Payload);
       setRequestList(data.Payload);
     }
     getData();
@@ -41,21 +41,15 @@ function App() {
           })
         })
         const json = await result.json();
-        console.log(json);
+
+        setRequestList([json.Payload[0], ...requestList, ]);
+
       }
       postRequest();
     }
   }, [submittedRequest])
 
-  /*
-  {
-"user_id": 2,
-"title": "new deployed! post",
-"category": "github",
-"room": 20,
-"body": "Help github wont authenticate....",
-"request_date": "18/1/2022"
-}*/
+
 
   function handleRequestSubmit(request) {
     setSubmittedRequest(request)
@@ -65,15 +59,11 @@ function App() {
     <div className="myApp">
       <header className="App-header">CamperOverflow</header>
 
-<<<<<<< HEAD
       <div class="topContainer">
         <div class="row">
           <div class="col" id="createRequest">
-            <CreateRequest />
+            <CreateRequest setSubmittedRequest={handleRequestSubmit}  />
           </div>
-=======
-      <CreateRequest setSubmittedRequest={handleRequestSubmit} />
->>>>>>> 59417dafccbc034f4947f711295c1cd8b1e244f2
 
           <div class="col" id="searchRequest">
             <BrowseRequest />

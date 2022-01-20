@@ -1,21 +1,15 @@
 import react from "react";
-import Box from "@material-ui/core/Box";
 
 function browseRequest() {
   return (
     <div>
-      <Box
-        style={{ marginLeft: "40%", marginTop: "60px", width: "30%" }}
-        color="red"
-        bgcolor="palevioletred"
-        p={1}
-      >
+      <div>
         {" "}
         <h1>Browse requests</h1>
         <input></input>
         <br></br>
         <button>Search requests</button>
-      </Box>
+      </div>
     </div>
   );
 }

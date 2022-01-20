@@ -4,16 +4,17 @@ import CreateRequest from "../Components/CreateRequests";
 import BrowseRequest from "../Components/BrowseRequests";
 import Request from "../Components/Request";
 import { useEffect, useState } from "react";
+import "./index.css";
 
 function App() {
   const [requestList, setRequestList] = useState([]);
   const [submittedRequest, setSubmittedRequest] = useState(null);
-  const [currentUserId, setCurrentUserId] = useState(2);
+  const [currentUserId, setCurrentUserId] = useState(2); //change to implement authentication!
+
   useEffect(() => {
     async function getData() {
       const result = await fetch("https://week-project.herokuapp.com/requests");
       const data = await result.json();
-      console.log(data.Payload);
       setRequestList(data.Payload);
     }
     getData();
@@ -40,44 +41,54 @@ function App() {
           })
         })
         const json = await result.json();
-        console.log(json);
+
+        setRequestList([json.Payload[0], ...requestList, ]);
+
       }
       postRequest();
     }
   }, [submittedRequest])
 
-  /*
-  {
-"user_id": 2,
-"title": "new deployed! post",
-"category": "github",
-"room": 20,
-"body": "Help github wont authenticate....",
-"request_date": "18/1/2022"
-}*/
+
 
   function handleRequestSubmit(request) {
     setSubmittedRequest(request)
   }
 
   return (
-    <div className="App">
+    <div className="myApp">
       <header className="App-header">CamperOverflow</header>
-      <CreateRequest setSubmittedRequest={handleRequestSubmit} />
-      <BrowseRequest />
-      {requestList.map((request) => {
-        return (
-          <Request
-            key={request["request_id"]}
-            title={request.title}
-            body={request.body}
-            category={request.category}
-            date={request["request_date"]}
-            room={request.room}
-            userId={request["user_id"]}
-          />
-        );
-      })}
+
+      <div className="topContainer">
+        <div className="row">
+          <div className="col" id="createRequest">
+            <CreateRequest setSubmittedRequest={handleRequestSubmit}  />
+          </div>
+
+          <div className="col" id="searchRequest">
+            <BrowseRequest />
+          </div>
+        </div>
+      </div>
+
+      <div className="row">
+        {requestList.map((request) => {
+          return (
+            <div key={request["request_id"]} className="col" id="displayedRequest">
+              <Request
+                id={request["request_id"]}
+                title={request.title}
+                body={request.body}
+                category={request.category}
+                date={request["request_date"]}
+                room={request.room}
+                userId={request["user_id"]}
+                currentUserId={currentUserId}
+              />
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 function RequestPost({ title, date, room, body, category }) {
   return (
     <div>
+      <h2>Placeholder username</h2>
       <h2>
         {room}: {title}
       </h2>

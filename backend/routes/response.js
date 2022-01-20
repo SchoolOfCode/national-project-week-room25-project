@@ -28,7 +28,7 @@ router.post("/", async function (req, res) {
 router.post("/:id", async function(req, res){
   const id = Number(req.params.id);
   const rawData = req.body;
-  const voteToAdd = rawData.response_id;
+  const voteToAdd = rawData.vote_count;
   console.log(voteToAdd)
   const updatedVote = await updateVoteCount(id, voteToAdd);
   res.json({Payload: updatedVote.rows})

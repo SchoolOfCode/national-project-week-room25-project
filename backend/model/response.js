@@ -14,8 +14,8 @@ export async function createResponse(response) {
   const responseDate = response.response_date;
   const voteCount = response.vote_count;
   const sqlString = `INSERT INTO response (user_id, request_id, body, response_date,  vote_count)
-  VALUES ('${userID}', '${requestID}', '${body}', '${responseDate}', '${voteCount}');`;
-  const res = await query(sqlString);
+  VALUES ($1, $2, $3, $4, $5) RETURNING *;`;
+  const res = await query(sqlString,[userID, requestID, body, responseDate, voteCount]);
   return res;
 }
 

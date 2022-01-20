@@ -36,6 +36,7 @@ function CreateRequest({ setSubmittedRequest }) {
     e.preventDefault();
 
     setSubmittedRequest(userInput);
+    e.target.reset();
   }
 
   function toggleFormVisibility() {

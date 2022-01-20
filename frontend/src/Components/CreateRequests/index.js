@@ -1,5 +1,8 @@
 import { useState } from "react";
 import Box from "@material-ui/core/Box";
+// import Button from "react-bootstrap/Button";
+// import "bootstrap/dist/css/bootstrap.min.css";
+
 //create a submit box with post functionality
 //We need to create a text input box
 // seperate text box for room number
@@ -10,7 +13,9 @@ import Box from "@material-ui/core/Box";
 // change h3 to labels
 // make state to track inputs of the user
 //
+
 function CreateRequest({ setSubmittedRequest }) {
+
   const [userInput, setUserInput] = useState({
     category: "miscellaneous",
     help: "respond here",
@@ -27,6 +32,7 @@ function CreateRequest({ setSubmittedRequest }) {
 
   function handleSubmit(e) {
     e.preventDefault();
+    //Post request should be here
     setSubmittedRequest(userInput);
   }
 
@@ -67,18 +73,22 @@ function CreateRequest({ setSubmittedRequest }) {
           <label htmlFor="description">
             Explain in more detail, Include what you have tried
           </label>
+
           <textarea
             id="description"
             onChange={handleOnChange}
             required
           ></textarea>
+
           <label htmlFor="help">what assistance do you require?</label>
           <select id="help" onChange={handleOnChange} required>
             <option defaultValue>respond here</option>
             <option>Come to room</option>
           </select>
           <br></br>
-          <button>Submit request</button>
+          <button type="button" className="btn btn-success">
+            Success
+          </button>
         </form>
       </Box>
     </div>

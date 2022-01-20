@@ -1,14 +1,15 @@
 function RequestPost({ title, date, room, body, category }) {
   return (
     <div>
+      <p>Max Smith</p>
+      <p className="room-number">Room: {room} </p>
       <h2>
-        {room}: {title}
+        {title}
       </h2>
-      <p>{category} </p>
+      <p className="category">{category} </p>
       <p>{date}</p>
       <p>{body}</p>
       <br></br>
-      <button>expand problem</button>
     </div>
   );
 }

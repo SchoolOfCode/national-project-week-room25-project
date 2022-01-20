@@ -4,11 +4,8 @@ function browseRequest() {
   return (
     <div>
       <div>
-        {" "}
-        <h1>Browse requests</h1>
-        <input></input>
-        <br></br>
-        <button>Search requests</button>
+        <button id="search-button" className="btn btn-primary">Search Requests</button>
+        <input className="form-control"></input>
       </div>
     </div>
   );

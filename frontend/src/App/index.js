@@ -57,7 +57,7 @@ function App() {
 
   return (
     <div className="myApp">
-      <header className="App-header">CamperOverflow</header>
+      <h1 className="App-header">In The Loop</h1>
 
       <div className="topContainer">
         <div className="row">

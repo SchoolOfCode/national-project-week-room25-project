@@ -1,3 +1,6 @@
+* {
+  margin: .5em;
+}
 #createRequest {
   background-color: #41729f;
 }
@@ -12,4 +15,43 @@
   border-color: black;
   border-style: solid;
   margin: 2%;
+  background-color: #c3e0e5;
+}
+
+.request {
+  background-color: #c3e0e5;
+}
+
+#voteButton {
+  border: 2px solid black;
+}
+
+#textBox {
+  width: 100%;
+}
+
+#hide-responses-button {
+  margin: .5em;
+}
+
+#submit-response-button {
+  margin: .5em;
+}
+
+.category {
+  border: 1px solid black;
+  padding: .2em;
+}
+
+.room-number {
+  font-weight: bold;
+}
+
+.App-header {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+#search-button {
+  margin-bottom: 1em;
 }

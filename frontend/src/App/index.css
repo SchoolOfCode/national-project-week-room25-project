@@ -1,0 +1,15 @@
+#createRequest {
+  background-color: #41729f;
+}
+
+#searchRequest {
+  background-color: #5885af;
+}
+
+#displayedRequest {
+  min-width: 40%;
+  justify-content: flex-start;
+  border-color: black;
+  border-style: solid;
+  margin: 2%;
+}

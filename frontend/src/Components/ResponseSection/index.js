@@ -48,7 +48,7 @@ function ResponseSection({ id, currentUserId }) {
 
   return (
     <div>
-      <button onClick={toggleResponsesVisibility}>View Responses</button>
+      <button onClick={toggleResponsesVisibility}>{ areResponsesVisible ? "Hide Responses" : "View Responses"}</button>
       <div style={areResponsesVisible ? {visibility: "visible", height: "auto"} : {visibility : "hidden", height: 0}}>
         <ResponseList responsesList={responsesList} />
         <ResponseForm currentUserId={currentUserId} addResponseToList={addResponseToList} />

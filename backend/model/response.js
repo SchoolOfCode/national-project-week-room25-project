@@ -1,7 +1,7 @@
 import query from "../db/index.js";
 
 export async function getAllResponse() {
-  const sqlString = `SELECT * FROM response`;
+  const sqlString = `SELECT * FROM response ORDER BY vote_count DESC`;
   const res = await query(sqlString);
   return res;
 }
@@ -20,9 +20,18 @@ export async function createResponse(response) {
 }
 
 export async function getResponseById(id) {
-  const sqlString = `SELECT * FROM response WHERE request_id=${id}`;
+  const sqlString = `SELECT * FROM response WHERE request_id=${id} ORDER BY vote_count DESC`;
   const res = await query(sqlString);
   return res;
+
+//   SELECT
+// 	select_list
+// FROM
+// 	table_name
+// ORDER BY
+// 	sort_expression1 [ASC | DESC],
+//         ...
+// 	sort_expressionN [ASC | DESC];
 }
 
 export async function updateVoteCount(id, vote){

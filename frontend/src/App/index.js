@@ -4,8 +4,10 @@ import CreateRequest from "../Components/CreateRequests";
 import BrowseRequest from "../Components/BrowseRequests";
 import Request from "../Components/Request";
 import { useEffect, useState } from "react";
+import {Routes, Route, Link, Outlet} from "react-router-dom";
 
 function App() {
+
   const [requestList, setRequestList] = useState([]);
   const [submittedRequest, setSubmittedRequest] = useState(null);
   const [currentUserId, setCurrentUserId] = useState(2);
@@ -61,14 +63,40 @@ function App() {
   }
 
   return (
-    <div className="myApp">
-      <header className="App-header">CamperOverflow</header>
 
-      <CreateRequest setSubmittedRequest={handleRequestSubmit} />
+    <div className="container-fluid">
+    <div className="myApp" >
 
-      <BrowseRequest />
 
-      {requestList.map((request) => {
+
+
+      <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <a class="navbar-brand" href="#">BOOTCAMPER-OVERFLOW</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/request">Request</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/createrequest">Create request</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/browserequest">Find request</a>
+      </li>    
+    </ul>
+  </div>  
+</nav>
+<Routes> 
+      <Route path="/" element={<h2></h2>}/>
+      <Route path="/request" element={<Request />} />
+      <Route path="/createrequest" element={<CreateRequest  />}/>
+      <Route path="/browserequest" element={<BrowseRequest />} />
+      </Routes>
+
+{requestList.map((request) => {
         return (
           <Request
             key={request["request_id"]}
@@ -81,6 +109,7 @@ function App() {
           />
         );
       })}
+    </div>
     </div>
   );
 }

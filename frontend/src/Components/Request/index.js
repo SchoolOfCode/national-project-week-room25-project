@@ -2,15 +2,23 @@ import RequestPost from "../RequestPost";
 
 function Request({ title, body, category, date, room, userId }) {
   return (
-    <div>
-      <RequestPost
-        title={title}
-        body={body}
-        category={category}
-        date={date}
-        room={room}
-        userId={userId}
-      />
+    <div>   
+<div class="card text-center">
+  <div class="card-header">
+    Featured
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{title}</h5>
+    <p class="card-text">{body}
+    <h6>on {date}</h6>
+    <h6>From room {room}</h6>
+    </p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+  <div class="card-footer text-muted">
+    2 days ago
+  </div>
+</div>
     </div>
   );
 }

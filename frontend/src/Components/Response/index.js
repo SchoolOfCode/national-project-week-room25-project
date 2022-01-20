@@ -5,6 +5,7 @@ function Response({ response }) {
   const [user, setUser] = useState();
 
   async function handleUpVote() {
+    console.log("upvote test");
     const res = await fetch(
       `https://week-project.herokuapp.com/response/${response.response_id}`,
       {

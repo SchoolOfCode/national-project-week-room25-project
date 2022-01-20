@@ -55,3 +55,8 @@
 #search-button {
   margin-bottom: 1em;
 }
+
+.response-list {
+  max-height: 300px;
+  overflow: scroll;
+}

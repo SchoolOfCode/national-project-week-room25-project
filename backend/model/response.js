@@ -7,7 +7,14 @@ export async function getAllResponse() {
 }
 
 export async function createResponse(response) {
-  const sqlString = `INSERT INTO response () VALUES `;
+
+  const userID = response.user_id;
+  const requestID = response.request_id;
+  const body = response.body;
+  const responseDate = response.response_date;
+  const voteCount = response.vote_count;
+  const sqlString = `INSERT INTO response (user_id, request_id, body, response_date,  vote_count)
+  VALUES ('${userID}', '${requestID}', '${body}', '${responseDate}', '${voteCount}');`;
   const res = await query(sqlString);
   return res;
 }

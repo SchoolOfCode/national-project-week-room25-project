@@ -8,7 +8,7 @@ const router = express.Router();
 
 router.get("/", async function (req, res) {
   const allResponse = await getAllResponse();
-  res.json({ Payload: allResponse });
+  res.json({ Payload: allResponse.rows });
 });
 
 router.get("/:id", async function (req, res) {
@@ -19,8 +19,9 @@ router.get("/:id", async function (req, res) {
 });
 
 router.post("/", async function (req, res) {
-  const responseToAdd = req.params.body;
-  const responseItem = await createResponse();
+  const responseToAdd = req.body;
+  const responseItem = await createResponse(responseToAdd);
+  res.json({Payload: responseItem.rows})
 });
 
 export default router;

@@ -1,5 +1,5 @@
 import express from "express";
-import { getUserById, getUsers } from "../model/users.js";
+import { getUserById, getUsers, createUser } from "../model/users.js";
 const router = express.Router();
 
 
@@ -20,6 +20,12 @@ router.get("/:id", async function(req, res){
   const id = Number(req.params.id)
   const selectedUser = await getUserById(id)
   res.json({Payload: selectedUser.rows})
+})
+
+router.post("/", async function(req, res){
+  const userToAdd = req.body;
+  const addUser = await createUser(userToAdd);
+  res.json({Payload: addUser.rows})
 })
 
 export default router;

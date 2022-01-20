@@ -21,6 +21,8 @@ function CreateRequest({ setSubmittedRequest }) {
     help: "respond here",
   });
 
+  const [isFormVisible, setIsFormVisible] = useState(false);
+
   function handleOnChange(e) {
     //get the user's input
     //get which input element was activated
@@ -36,54 +38,71 @@ function CreateRequest({ setSubmittedRequest }) {
     setSubmittedRequest(userInput);
   }
 
+  function toggleFormVisibility() {
+    setIsFormVisible(!isFormVisible);
+}
+
+
   return (
     <div>
-
-      <form onSubmit={handleSubmit}>
+      <button className="btn btn-primary" onClick={toggleFormVisibility} >{isFormVisible ? "Hide Form" : "Make a Request"}</button>
+      <form onSubmit={handleSubmit} style={isFormVisible ? {visibility: "visible", height: "auto"} : {visibility : "hidden", height: 0}}>
         <h2>create a request</h2>
-        <label htmlFor="room">room#</label>
-        <input
-          type="number"
-          id="room"
-          onChange={handleOnChange}
-          required
-        ></input>
-        <label htmlFor="problemTitle">what is your problem</label>
-        <input
-          type="text"
-          id="problemTitle"
-          onChange={handleOnChange}
-          required
-        ></input>
-        <label htmlFor="category">Category</label>
-        <select id="category" onChange={handleOnChange} required>
-          <option defaultValue>miscellaneous</option>
-          <option>react</option>
-          <option>github</option>
-          <option>JavaScript</option>
-          <option>Deployment</option>
-          <option>planning</option>
-        </select>
-        <label htmlFor="description">
-          Explain in more detail, Include what you have tried
-        </label>
-        <textarea
-          type="text"
-          id="description"
-          onChange={handleOnChange}
-          required
-        ></textarea>
-        <label htmlFor="help">what assistance do you require?</label>
-        <select id="help" onChange={handleOnChange} required>
-          <option defaultValue>respond here</option>
-          <option>Come to room</option>
-        </select>
+        <div className="form-group">
+          <label htmlFor="room">Room Number</label>
+          <input
+          min="1"
+          className="form-control"
+            type="number"
+            id="room"
+            onChange={handleOnChange}
+            required
+          ></input>
+        </div>
+        <div className="form-group">
+          <label htmlFor="problemTitle">Problem Title</label>
+          <input
+          className="form-control"
+            type="text"
+            id="problemTitle"
+            onChange={handleOnChange}
+            required
+          ></input>
+        </div>
+        <div className="form-group">
+          <label htmlFor="category">Category</label>
+          <select className="form-control" id="category" onChange={handleOnChange} required>
+            <option value="" disabled selected hidden>Select...</option>
+            <option defaultValue>miscellaneous</option>
+            <option>react</option>
+            <option>github</option>
+            <option>JavaScript</option>
+            <option>Deployment</option>
+            <option>planning</option>
+          </select>
+          </div>
+          <div className="form-group">
+          <label htmlFor="description">
+            Explain in more detail, Include what you have tried
+          </label>
+          <textarea
+          className="form-control"
+            type="text"
+            id="description"
+            onChange={handleOnChange}
+            required
+          ></textarea>      
+          </div>
+          <div className="form-group">
+          <label htmlFor="help">What assistance do you require?</label>
+          <select className="form-control" id="help" onChange={handleOnChange} required>
+            <option value="" disabled selected hidden>Select...</option>
+            <option defaultValue>Respond here please</option>
+            <option>Come to room please</option>
+          </select>
+          </div>
         <br></br>
-                 <button type="submit" className="btn btn-success">
-
-            Submit Request
-
-          </button>
+        <button type="submit" className="btn btn-success">Submit Request</button>
       </form>
 
     </div>

@@ -53,7 +53,7 @@ function ResponseSection({ id, currentUserId }) {
 
   return (
     <div>
-      <button className="btn btn-primary" onClick={toggleResponsesVisibility}>
+      <button id="hide-responses-button" className="btn btn-primary" onClick={toggleResponsesVisibility}>
         {areResponsesVisible ? "Hide Responses" : "View Responses"}
       </button>
       <div

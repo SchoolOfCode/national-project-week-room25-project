@@ -30,7 +30,7 @@ function ResponseForm({ addResponseToList }) {
         onChange={handleOnChange}
       ></textarea>
       <br></br>
-      <button className="btn btn-success">Submit Response</button>
+      <button id="submit-response-button" className="btn btn-success">Submit Response</button>
     </form>
   );
 }

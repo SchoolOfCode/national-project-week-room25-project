@@ -59,24 +59,24 @@ function App() {
     <div className="myApp">
       <header className="App-header">CamperOverflow</header>
 
-      <div class="topContainer">
-        <div class="row">
-          <div class="col" id="createRequest">
+      <div className="topContainer">
+        <div className="row">
+          <div className="col" id="createRequest">
             <CreateRequest setSubmittedRequest={handleRequestSubmit}  />
           </div>
 
-          <div class="col" id="searchRequest">
+          <div className="col" id="searchRequest">
             <BrowseRequest />
           </div>
         </div>
       </div>
 
-      <div class="row">
+      <div className="row">
         {requestList.map((request) => {
           return (
-            <div class="col" id="displayedRequest">
+            <div key={request["request_id"]} className="col" id="displayedRequest">
               <Request
-                key={request["request_id"]}
+                id={request["request_id"]}
                 title={request.title}
                 body={request.body}
                 category={request.category}

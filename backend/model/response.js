@@ -20,7 +20,7 @@ export async function createResponse(response) {
 }
 
 export async function getResponseById(id) {
-  const sqlString = `SELECT * FROM response WHERE response_id=${id}`;
+  const sqlString = `SELECT * FROM response WHERE request_id=${id}`;
   const res = await query(sqlString);
   return res;
 }

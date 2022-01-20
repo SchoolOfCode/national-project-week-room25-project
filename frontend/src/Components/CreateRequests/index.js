@@ -64,12 +64,12 @@ function CreateRequest({ setSubmittedRequest }) {
           <option>Deployment</option>
           <option>planning</option>
         </select>
-        <label htmlFor="discription">
+        <label htmlFor="description">
           Explain in more detail, Include what you have tried
         </label>
         <input
           type="text"
-          id="discription"
+          id="description"
           onChange={handleOnChange}
           required
         ></input>

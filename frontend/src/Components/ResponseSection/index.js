@@ -3,7 +3,7 @@ import ResponseForm from "../ResponseForm";
 import { useState, useEffect } from "react";
 import React from "react";
 
-function ResponseSection({ id }) {
+function ResponseSection({ id, currentUserId }) {
   const [responsesList, setResponsesList] = useState([]);
 
   useEffect(() => {
@@ -19,11 +19,34 @@ function ResponseSection({ id }) {
     fetchResponses();
   }, [id]);
 
+  async function addResponseToList(response) {
+    var today = new Date();
+    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    //response.body to access user's input
+    // make a fetch post request to "https://week-project.herokuapp.com/response"
+    const res = await fetch("https://week-project.herokuapp.com/response", {
+      method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            "user_id": currentUserId,
+            "request_id": id,
+            "body": response.body,
+            "response_date": date,
+            "vote_count": 0
+          })
+    })
+    const json = await res.json();  
+    console.log(json.Payload[0]);
+    setResponsesList([...responsesList, json.Payload[0]]);
+  }
+
   return (
     <div>
       <ResponseList responsesList={responsesList} />
 
-      <ResponseForm />
+      <ResponseForm currentUserId={currentUserId} addResponseToList={addResponseToList} />
     </div>
   );
 }

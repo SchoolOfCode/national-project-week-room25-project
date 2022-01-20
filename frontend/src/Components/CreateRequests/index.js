@@ -67,12 +67,12 @@ function CreateRequest({ setSubmittedRequest }) {
         <label htmlFor="description">
           Explain in more detail, Include what you have tried
         </label>
-        <input
+        <textarea
           type="text"
           id="description"
           onChange={handleOnChange}
           required
-        ></input>
+        ></textarea>
         <label htmlFor="help">what assistance do you require?</label>
         <select id="help" onChange={handleOnChange} required>
           <option defaultValue>respond here</option>

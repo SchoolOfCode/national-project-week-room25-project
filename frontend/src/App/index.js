@@ -9,7 +9,7 @@ import "./index.css";
 function App() {
   const [requestList, setRequestList] = useState([]);
   const [submittedRequest, setSubmittedRequest] = useState(null);
-  const [currentUserId, setCurrentUserId] = useState(2);
+  const [currentUserId, setCurrentUserId] = useState(2); //change to implement authentication!
 
   useEffect(() => {
     async function getData() {
@@ -83,6 +83,7 @@ function App() {
                 date={request["request_date"]}
                 room={request.room}
                 userId={request["user_id"]}
+                currentUserId={currentUserId}
               />
             </div>
           );

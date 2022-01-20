@@ -10,7 +10,8 @@
     "db-create-requests-table": "node -r dotenv/config ./db/scripts/createRequestsTable.js",
     "db-create-response-table": "node -r dotenv/config ./db/scripts/createResponseTable.js",
     "db-populate-requests-table": "node -r dotenv/config ./db/scripts/populateRequestsTable.js",
-    "db-populate-users-table": "node -r dotenv/config ./db/scripts/populateUsersTable.js"
+    "db-populate-users-table": "node -r dotenv/config ./db/scripts/populateUsersTable.js",
+    "db-truncate-response-table": "node -r dotenv/config ./db/scripts/truncateResponseTable.js"
   
 
   },

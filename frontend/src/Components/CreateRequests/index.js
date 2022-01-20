@@ -47,7 +47,6 @@ function CreateRequest({ setSubmittedRequest }) {
     <div>
       <button className="btn btn-primary" onClick={toggleFormVisibility} >{isFormVisible ? "Hide Form" : "Make a Request"}</button>
       <form onSubmit={handleSubmit} style={isFormVisible ? {visibility: "visible", height: "auto"} : {visibility : "hidden", height: 0}}>
-        <h2>create a request</h2>
         <div className="form-group">
           <label htmlFor="room">Room Number</label>
           <input

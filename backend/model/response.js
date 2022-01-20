@@ -24,3 +24,11 @@ export async function getResponseById(id) {
   const res = await query(sqlString);
   return res;
 }
+
+export async function updateVoteCount(id, vote){
+  const sqlString = `UPDATE response
+  SET vote_count = vote_count + ${vote}
+  WHERE response_id = ${id} RETURNING vote_count;`;
+  const res = await query(sqlString)
+  return res
+}

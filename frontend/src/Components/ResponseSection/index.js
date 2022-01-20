@@ -5,6 +5,7 @@ import React from "react";
 
 function ResponseSection({ id, currentUserId }) {
   const [responsesList, setResponsesList] = useState([]);
+  const [areResponsesVisible, setAreResponsesVisible] = useState(false);
 
   useEffect(() => {
     async function fetchResponses() {
@@ -37,16 +38,21 @@ function ResponseSection({ id, currentUserId }) {
             "vote_count": 0
           })
     })
-    const json = await res.json();  
-    console.log(json.Payload[0]);
+    const json = await res.json();
     setResponsesList([...responsesList, json.Payload[0]]);
   }
 
+  function toggleResponsesVisibility() {
+    setAreResponsesVisible(!areResponsesVisible);
+}
+
   return (
     <div>
-      <ResponseList responsesList={responsesList} />
-
-      <ResponseForm currentUserId={currentUserId} addResponseToList={addResponseToList} />
+      <button onClick={toggleResponsesVisibility}>View Responses</button>
+      <div style={areResponsesVisible ? {visibility: "visible", height: "auto"} : {visibility : "hidden", height: 0}}>
+        <ResponseList responsesList={responsesList} />
+        <ResponseForm currentUserId={currentUserId} addResponseToList={addResponseToList} />
+      </div>
     </div>
   );
 }

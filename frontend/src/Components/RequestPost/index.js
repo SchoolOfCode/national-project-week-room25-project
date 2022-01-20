@@ -8,7 +8,6 @@ function RequestPost({ title, date, room, body, category }) {
       <p>{date}</p>
       <p>{body}</p>
       <br></br>
-      <button>expand problem</button>
     </div>
   );
 }

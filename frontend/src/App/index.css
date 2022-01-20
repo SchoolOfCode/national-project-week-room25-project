@@ -1,3 +1,6 @@
+* {
+  margin: 1em;
+}
 #createRequest {
   background-color: #41729f;
 }
@@ -12,4 +15,16 @@
   border-color: black;
   border-style: solid;
   margin: 2%;
+}
+
+.request {
+  background-color: #c3e0e5;
+}
+
+#voteButton {
+  border: 2px solid black;
+}
+
+#textBox {
+  width: 100%;
 }

@@ -50,6 +50,7 @@ function CreateRequest({ setSubmittedRequest }) {
           <label htmlFor="room">room#</label>
           <input
             type="number"
+            min="1"
             id="room"
             onChange={handleOnChange}
             required
@@ -86,8 +87,8 @@ function CreateRequest({ setSubmittedRequest }) {
             <option>Come to room</option>
           </select>
           <br></br>
-          <button type="button" className="btn btn-success">
-            Success
+          <button type="submit" className="btn btn-success">
+            Submit Request
           </button>
         </form>
       </Box>

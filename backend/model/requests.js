@@ -9,8 +9,8 @@ export async function creatRequest(request) {
   const request_date = request.request_date;
 
   const sqlString = `INSERT INTO requests (user_id, title, category, room, body, request_date) 
-            VALUES ('${user_id}', '${title}', '${category}', '${room}', '${body}', '${request_date}') RETURNING *;`;
-  const res = await query(sqlString);
+            VALUES ($1, $2, $3, $4, $5, $6) RETURNING *;`;
+  const res = await query(sqlString, [user_id, title, category, room, body, request_date]);
   return res;
 }
 

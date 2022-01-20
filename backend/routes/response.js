@@ -3,6 +3,7 @@ import {
   getResponseById,
   getAllResponse,
   createResponse,
+  updateVoteCount
 } from "../model/response.js";
 const router = express.Router();
 
@@ -23,5 +24,14 @@ router.post("/", async function (req, res) {
   const responseItem = await createResponse(responseToAdd);
   res.json({Payload: responseItem.rows})
 });
+
+router.post("/:id", async function(req, res){
+  const id = Number(req.params.id);
+  const rawData = req.body;
+  const voteToAdd = rawData.response_id;
+  console.log(voteToAdd)
+  const updatedVote = await updateVoteCount(id, voteToAdd);
+  res.json({Payload: updatedVote.rows})
+})
 
 export default router;

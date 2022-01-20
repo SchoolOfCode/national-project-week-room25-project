@@ -32,6 +32,7 @@ function CreateRequest({ setSubmittedRequest }) {
 
   function handleSubmit(e) {
     e.preventDefault();
+    //Post request should be here
     setSubmittedRequest(userInput);
   }
 
